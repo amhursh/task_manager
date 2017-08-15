@@ -35,4 +35,10 @@ class TaskManagerApp < Sinatra::Base
   get '/showmethetask' do
     redirect '/tasks'
   end
+
+  get '/tasks/:id/edit' do
+    @task = Task.find(params[:id])
+    erb :edit
+  end
+
 end
