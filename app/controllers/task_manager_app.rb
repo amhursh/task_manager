@@ -9,6 +9,7 @@ class TaskManagerApp < Sinatra::Base
 
   get '/tasks' do
     @tasks = Task.all
+    @location = params[:location]
     erb :index
   end
 
@@ -25,5 +26,13 @@ class TaskManagerApp < Sinatra::Base
   get '/tasks/:id' do
     @task = Task.find(params[:id])
     erb :show
+  end
+
+  get '/easteregg' do
+    erb :easteregg
+  end
+
+  get '/showmethetask' do
+    redirect '/tasks'
   end
 end
